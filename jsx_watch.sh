@@ -1,0 +1,1 @@
+jsx --watch jsx/ scripts/

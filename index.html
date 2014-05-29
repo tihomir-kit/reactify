@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <title>Reactify</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+    <script src="./scripts/angular.min.js"></script>
+    <script src="./scripts/underscore-min.js"></script>
+    <script src="./scripts/react.min.js"></script>
+	<script src="./scripts/ngReact.min.js"></script>	
+	<script src="./scripts/reactor.js"></script>
+    <script src="./app.js"></script>
+    
+    <div ng-app="Reactify" ng-controller="MainCtrl">
+        <span>Items: </span>
+        <input ng-model="amount"/>
+        <button ng-click="populateAngular()">Angular</button>
+        <button ng-click="populateReact()">React</button>
+        <button ng-click="clearItems()">Clear</button>
+        <span ng-if="showUpdateTime()">Update time: {{updateTime}}</span>
+    
+        <div>
+            <ul ng-repeat="item in angularItems">
+                <li><a href="javascript:void(0)">{{item.prop1}}</a></li>
+                <li><a href="javascript:void(0)">{{item.prop2}}</a></li>
+                <li><a href="javascript:void(0)">{{item.prop3}}</a></li>
+                <li><a href="javascript:void(0)">{{item.prop4}}</a></li>
+                <li><a href="javascript:void(0)">{{item.prop5}}</a></li>
+            </ul>
+        </div>
+
+        <div ng-react-component="ReactItemList" data="reactItems" ></div>
+    </div>
+</body>
+</html>

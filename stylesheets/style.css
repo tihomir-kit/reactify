@@ -1,0 +1,9 @@
+ul {
+    list-style-type: none;
+    clear: left;
+}
+
+li {
+    float: left;
+    min-width: 70px;
+}
