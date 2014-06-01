@@ -3,6 +3,18 @@ Reactify
 
 Reactify is a simple AngularJS demo web app which uses [ReactJS](http://facebook.github.io/react/index.html) to improve the rendering speed of a long item list.
 
+## Running JSX
+
+To translate JSX into plain JS you'll need to install [NodeJS](http://nodejs.org/) and after that the JSX npm package using:
+
+```npm install -g react-tools```
+
+after you've successfully installed JSX on your machine, you can run the JSX watcher by running:
+
+```jsx --watch jsx --watch jsx/ scripts/```
+
+Any change you make to the "jsx/reactor.js" file will translate into "scripts/reactor.js" which is included in the app.
+
 ## Additional reads
 
 * ["NgReact - React Components in Angular"](http://davidandsuzi.com/ngreact-react-components-in-angular/)

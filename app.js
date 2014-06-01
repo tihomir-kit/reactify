@@ -9,6 +9,7 @@ angular.module("Reactify", [
     $scope.amount = 1000;
     $scope.updateTime = "-";
     $scope.watchersCount = 0;
+    $scope.isReact = false;
 
     function createItems() {
         var items = [];
@@ -41,12 +42,14 @@ angular.module("Reactify", [
     }
 
     $scope.populateAngular = function () {
+        $scope.isReact = false;
         $scope.clearItems();
         $scope.angularItems = createItems();
         measureTime();
     };
 
     $scope.populateReact = function () {
+        $scope.isReact = true;
         $scope.clearItems();
         $scope.reactItems = createItems();
     };

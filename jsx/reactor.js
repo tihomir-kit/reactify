@@ -94,9 +94,11 @@ window.ReactItemList = React.createClass({
         );
     },
     componentDidUpdate: function () {
-        var time = (new Date().getTime() - this.props.startTime) + " ms";
-        this.props.scope.setUpdateTime(time);
-        this.props.scope.setWatchersCount();
-        console.log("REACT - List updated in: " + time);
+        if (this.props.scope.isReact) {
+            var time = (new Date().getTime() - this.props.startTime) + " ms";
+            this.props.scope.setUpdateTime(time);
+            this.props.scope.setWatchersCount();
+            console.log("REACT - List updated in: " + time);
+        }
     }
 });
