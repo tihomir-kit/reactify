@@ -9,25 +9,34 @@
     <script src="./scripts/angular.min.js"></script>
     <script src="./scripts/underscore-min.js"></script>
     <script src="./scripts/react.min.js"></script>
-	<script src="./scripts/ngReact.min.js"></script>	
-	<script src="./scripts/reactor.js"></script>
+    <script src="./scripts/ngReact.min.js"></script>
+    <script src="./scripts/reactor.js"></script>
     <script src="./app.js"></script>
-    
+
     <div ng-app="Reactify" ng-controller="MainCtrl">
         <span>Items: </span>
         <input ng-model="amount"/>
         <button ng-click="populateAngular()">Angular</button>
         <button ng-click="populateReact()">React</button>
         <button ng-click="clearItems()">Clear</button>
-        <span ng-if="showUpdateTime()">Update time: {{updateTime}}</span>
-    
+        <button ng-click="setWatchersCount()">Count Watchers</button>
+        <span ng-if="showUpdateTime()"><b>Update time:</b> {{updateTime}}</span>
+        <span><b>Watchers count:</b> {{watchersCount}}</span>
+
         <div>
             <ul ng-repeat="item in angularItems">
-                <li><a href="javascript:void(0)">{{item.prop1}}</a></li>
-                <li><a href="javascript:void(0)">{{item.prop2}}</a></li>
-                <li><a href="javascript:void(0)">{{item.prop3}}</a></li>
-                <li><a href="javascript:void(0)">{{item.prop4}}</a></li>
-                <li><a href="javascript:void(0)">{{item.prop5}}</a></li>
+                <li>{{item.prop1}}</li>
+                <li>{{item.prop2}}</li>
+                <li>{{item.prop3}}</li>
+                <li>{{item.prop4}}</li>
+                <li class="random-number">{{item.prop5}}</li>
+                <li><a href="javascript:void(0)" ng-click="onAngularShowSubItemClick(item)">{{item.prop6.showHide}} SubItem</a></li>
+                <li ng-if="item.prop6.show">
+                    <ul>
+                        <li>{{item.prop6.text}} {{item.prop6.counter}}</li>
+                        <li><a href="javascript:void(0)"ng-click="onAngularUpdateSubItemClick(item)">Update</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
 

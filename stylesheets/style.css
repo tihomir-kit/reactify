@@ -5,5 +5,10 @@ ul {
 
 li {
     float: left;
-    min-width: 70px;
+    min-width: 60px;
+    padding-left: 25px;
+}
+
+.random-number {
+    min-width: 90px;
 }
