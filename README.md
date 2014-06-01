@@ -5,9 +5,9 @@ Reactify is a simple AngularJS demo web app which uses [ReactJS](http://facebook
 
 ## Additional reads
 
-[NgReact - React Components in Angular](http://davidandsuzi.com/ngreact-react-components-in-angular/)
-["Faster AngularJS Rendering (AngularJS and ReactJS)"](http://www.williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/).
-["AngularJS: My solution to the ng-repeat performance problem"](http://www.williambrownstreet.net/blog/2013/07/angularjs-my-solution-to-the-ng-repeat-performance-problem/)
+* ["NgReact - React Components in Angular"](http://davidandsuzi.com/ngreact-react-components-in-angular/)
+* ["Faster AngularJS Rendering (AngularJS and ReactJS)"](http://www.williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/)
+* ["AngularJS: My solution to the ng-repeat performance problem"](http://www.williambrownstreet.net/blog/2013/07/angularjs-my-solution-to-the-ng-repeat-performance-problem/)
 
 ======================
 
