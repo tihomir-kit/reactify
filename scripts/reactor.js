@@ -81,7 +81,7 @@ window.ReactItemList = React.createClass({displayName: 'ReactItemList',
     render: function() {
         this.props.startTime = new Date().getTime();
         var scope = this.props.scope;
-        var items = scope.reactItems;
+        var items = scope.items;
         
         var rows = _.map(items, function(item) {
             return (

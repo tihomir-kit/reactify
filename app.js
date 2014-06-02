@@ -4,17 +4,19 @@ angular.module("Reactify", [
     "ngReact",
 ])
 .controller("MainCtrl", function ($scope, $timeout) {
-    $scope.angularItems = [];
-    $scope.reactItems = [];
-    $scope.amount = 1000;
+    //$scope.angularItems = [];
+    //$scope.reactItems = [];
+    $scope.items = [];
+    $scope.showAngular = false;
+    $scope.showReact = false;
+    $scope.amount = 5000;
     $scope.updateTime = "-";
     $scope.watchersCount = 0;
     $scope.isReact = false;
 
     function createItems() {
-        var items = [];
         for (var i = 0; i < $scope.amount; i++) {
-            items.push({
+            $scope.items.push({
                 prop1: i,
                 prop2: "X",
                 prop3: "Y",
@@ -28,8 +30,8 @@ angular.module("Reactify", [
                 }
             });
         }
-        return items;
     }
+    createItems();
 
     function measureTime() {
         var startTimeList = new Date().getTime();
@@ -42,21 +44,27 @@ angular.module("Reactify", [
     }
 
     $scope.populateAngular = function () {
+        $scope.showAngular = true;
+        $scope.showReact = false;
         $scope.isReact = false;
-        $scope.clearItems();
-        $scope.angularItems = createItems();
+        //$scope.clearItems();
+        //$scope.angularItems = createItems();
         measureTime();
     };
 
     $scope.populateReact = function () {
+        $scope.showAngular = false;
+        $scope.showReact = true;
         $scope.isReact = true;
-        $scope.clearItems();
-        $scope.reactItems = createItems();
+        //$scope.clearItems();
+        //$scope.reactItems = createItems();
     };
 
     $scope.clearItems = function () {
-        $scope.angularItems = [];
-        $scope.reactItems = [];
+        //$scope.angularItems = [];
+        //$scope.reactItems = [];
+        $scope.showAngular = false;
+        $scope.showReacat = false;
         $scope.updateTime = "-";
         $scope.watchersCount = 0;
     };
@@ -66,7 +74,7 @@ angular.module("Reactify", [
     };
 
     $scope.showUpdateTime = function () {
-        return $scope.angularItems.length > 0 || $scope.reactItems.length > 0;
+        return $scope.items.length > 0;
     };
 
     $scope.setWatchersCount = function () {

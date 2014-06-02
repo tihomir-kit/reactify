@@ -23,8 +23,8 @@
         <span ng-if="showUpdateTime()"><b>Update time:</b> {{updateTime}}</span>
         <span><b>Watchers count:</b> {{watchersCount}}</span>
 
-        <div>
-            <ul ng-repeat="item in angularItems">
+        <div ng-if="showAngular">
+            <ul ng-repeat="item in items">
                 <li>{{item.prop1}}</li>
                 <li>{{item.prop2}}</li>
                 <li>{{item.prop3}}</li>
@@ -40,7 +40,9 @@
             </ul>
         </div>
 
-        <div ng-react-component="ReactItemList" data="reactItems" ></div>
+        <div ng-if="showReact">
+            <div ng-react-component="ReactItemList" data="items" ></div>
+        </div>
     </div>
 </body>
 </html>

@@ -81,7 +81,7 @@ window.ReactItemList = React.createClass({
     render: function() {
         this.props.startTime = new Date().getTime();
         var scope = this.props.scope;
-        var items = scope.reactItems;
+        var items = scope.items;
         
         var rows = _.map(items, function(item) {
             return (
@@ -93,6 +93,14 @@ window.ReactItemList = React.createClass({
             <div>{rows}</div>
         );
     },
+    componentDidMount: function () {
+        if (this.props.scope.isReact) {
+            var time = (new Date().getTime() - this.props.startTime) + " ms";
+            this.props.scope.setUpdateTime(time);
+            this.props.scope.setWatchersCount();
+            console.log("REACT - List mounted in: " + time);
+        }
+    }
     componentDidUpdate: function () {
         if (this.props.scope.isReact) {
             var time = (new Date().getTime() - this.props.startTime) + " ms";
