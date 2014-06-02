@@ -93,12 +93,18 @@ window.ReactItemList = React.createClass({displayName: 'ReactItemList',
             React.DOM.div(null, rows)
         );
     },
+    componentDidMount: function () {
+        measureTime(this.props, "REACT - List mounted in: ");
+    },
     componentDidUpdate: function () {
-        if (this.props.scope.isReact) {
-            var time = (new Date().getTime() - this.props.startTime) + " ms";
-            this.props.scope.setUpdateTime(time);
-            this.props.scope.setWatchersCount();
-            console.log("REACT - List updated in: " + time);
-        }
+        measureTime(this.props, "REACT - List updated in: ");
     }
 });
+
+function measureTime(props, message) {
+    if (props.scope.showReact) {
+        var time = (new Date().getTime() - props.startTime) + " ms";
+        props.scope.setUpdateTime(time);
+        console.log(message + time);
+    }
+}

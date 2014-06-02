@@ -4,17 +4,16 @@ angular.module("Reactify", [
     "ngReact",
 ])
 .controller("MainCtrl", function ($scope, $timeout) {
-    //$scope.angularItems = [];
-    //$scope.reactItems = [];
     $scope.items = [];
     $scope.showAngular = false;
     $scope.showReact = false;
-    $scope.amount = 5000;
+    $scope.amount = 2000;
     $scope.updateTime = "-";
     $scope.watchersCount = 0;
     $scope.isReact = false;
 
-    function createItems() {
+    $scope.crateItems = function () {
+        $scope.items = [];
         for (var i = 0; i < $scope.amount; i++) {
             $scope.items.push({
                 prop1: i,
@@ -31,50 +30,37 @@ angular.module("Reactify", [
             });
         }
     }
-    createItems();
+    $scope.crateItems();
 
     function measureTime() {
         var startTimeList = new Date().getTime();
         $timeout(function () {
             var time = (new Date().getTime() - startTimeList) + " ms";
             $scope.setUpdateTime(time);
-            $scope.setWatchersCount();
             console.log("ANGULAR - List updated in: " + time);
         });
-    }
+    };
 
     $scope.populateAngular = function () {
         $scope.showAngular = true;
         $scope.showReact = false;
-        $scope.isReact = false;
-        //$scope.clearItems();
-        //$scope.angularItems = createItems();
         measureTime();
     };
 
     $scope.populateReact = function () {
         $scope.showAngular = false;
         $scope.showReact = true;
-        $scope.isReact = true;
-        //$scope.clearItems();
-        //$scope.reactItems = createItems();
     };
 
     $scope.clearItems = function () {
-        //$scope.angularItems = [];
-        //$scope.reactItems = [];
         $scope.showAngular = false;
-        $scope.showReacat = false;
+        $scope.showReact = false;
         $scope.updateTime = "-";
         $scope.watchersCount = 0;
     };
 
     $scope.setUpdateTime = function (time) {
         $scope.updateTime = time;
-    };
-
-    $scope.showUpdateTime = function () {
-        return $scope.items.length > 0;
     };
 
     $scope.setWatchersCount = function () {
@@ -104,13 +90,11 @@ angular.module("Reactify", [
         item.prop6.show = !item.prop6.show;
         item.prop6.showHide = item.prop6.show ? "Hide" : "Show";
         measureTime();
-        $scope.setWatchersCount();
     };
 
     $scope.onAngularUpdateSubItemClick = function (item) {
         item.prop6.counter++;
         measureTime();
-        $scope.setWatchersCount();
     };
 
     $scope.onReactShowSubItemClick = function (reactComponent, item) {

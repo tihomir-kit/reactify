@@ -16,11 +16,12 @@
     <div ng-app="Reactify" ng-controller="MainCtrl">
         <span>Items: </span>
         <input ng-model="amount"/>
-        <button ng-click="populateAngular()">Angular</button>
-        <button ng-click="populateReact()">React</button>
+        <button ng-click="crateItems()" ng-disabled="amount == items.length">Set</button>
+        <button ng-click="populateAngular()"  ng-disabled="amount != items.length">Angular</button>
+        <button ng-click="populateReact()"  ng-disabled="amount != items.length">React</button>
         <button ng-click="clearItems()">Clear</button>
         <button ng-click="setWatchersCount()">Count Watchers</button>
-        <span ng-if="showUpdateTime()"><b>Update time:</b> {{updateTime}}</span>
+        <span><b>Update time:</b> {{updateTime}}</span>
         <span><b>Watchers count:</b> {{watchersCount}}</span>
 
         <div ng-if="showAngular">
