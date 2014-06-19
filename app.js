@@ -97,13 +97,15 @@ angular.module("Reactify", [
         measureTime();
     };
 
-    $scope.onReactShowSubItemClick = function (reactComponent, item) {
+    $scope.onReactShowSubItemClick = function (reactComponent) {
+        var item = reactComponent.props.item;
         item.prop6.show = !item.prop6.show;
         item.prop6.showHide = item.prop6.show ? "Hide" : "Show";
         reactComponent.setState({ item: item, scope: $scope });
     };
 
-    $scope.onReactUpdateSubItemClick = function (reactComponent, item) {
+    $scope.onReactUpdateSubItemClick = function (reactComponent) {
+        var item = reactComponent.props.item;
         item.prop6.counter++;
         reactComponent.setState({ item: item, scope: $scope });
     };

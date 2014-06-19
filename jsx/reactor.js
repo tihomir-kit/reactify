@@ -7,7 +7,7 @@ function createShowSubItemClickHandler(reactComponent) {
     var scope = reactComponent.props.scope;
     return scope.$apply.bind(
         scope,
-        scope.onReactShowSubItemClick.bind(null, reactComponent, reactComponent.props.item)
+        scope.onReactShowSubItemClick.bind(null, reactComponent)
     );
 }
 
@@ -15,7 +15,7 @@ function createUpdateSubItemClickHandler(reactComponent) {
     var scope = reactComponent.props.scope;
     return scope.$apply.bind(
         scope,
-        scope.onReactUpdateSubItemClick.bind(null, reactComponent, reactComponent.props.item)
+        scope.onReactUpdateSubItemClick.bind(null, reactComponent)
     );
 }
 

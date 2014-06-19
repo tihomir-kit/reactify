@@ -1,7 +1,7 @@
 Reactify
 =======================
 
-Reactify is a simple AngularJS demo web app which uses [ReactJS](http://facebook.github.io/react/index.html) to improve the rendering speed of a long item list.
+Reactify is a simple AngularJS demo web app which uses [ReactJS](http://facebook.github.io/react/index.html) to improve the rendering speed of a long item list. Here is a [blog post](http://www.mono-software.com/blog/post/Mono/242/Improving-AngularJS-long-list-rendering-performance-using-ReactJS/) which explains the workflow of implementing ReactJS into your Angular app through [ngReact](https://github.com/davidchang/ngReact) directive.
 
 ## Running JSX
 
