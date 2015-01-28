@@ -50,6 +50,10 @@ angular.module("Reactify", [
     $scope.populateReact = function () {
         $scope.showAngular = false;
         $scope.showReact = true;
+        var ReactExample = React.createFactory(ReactItemList);
+        React.render(ReactExample({
+            scope: $scope
+        }), document.getElementById('reactExample'));
     };
 
     $scope.clearItems = function () {

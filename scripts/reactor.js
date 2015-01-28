@@ -29,8 +29,8 @@ window.ReactSubItem = React.createClass({displayName: 'ReactSubItem',
         var updateSubItemClickHandler = createUpdateSubItemClickHandler(reactComponent);
         
         return (
-            React.DOM.li(null, 
-                React.DOM.ul(null, 
+            React.DOM.li(null,
+                React.DOM.ul(null,
                     React.DOM.li(null, subItem.text, " ", subItem.counter),
                     React.DOM.li(null, React.DOM.a( {href:"javascript:void(0)", onClick:updateSubItemClickHandler}, "Update"))
                 )
@@ -51,15 +51,16 @@ window.ReactItem = React.createClass({displayName: 'ReactItem',
 
         var showSubItemClickHandler = createShowSubItemClickHandler(this);
 
+        var ReactSubItemFactory = React.createFactory(ReactSubItem);
         var subItem = null;
         if (item.prop6.show) {
             subItem = (
-                ReactSubItem( {reactComponent:this} )
+                ReactSubItemFactory({reactComponent:this})
             );
         }
 
         return (
-            React.DOM.ul(null, 
+            React.DOM.ul(null,
                 React.DOM.li(null, item.prop1),
                 React.DOM.li(null, item.prop2),
                 React.DOM.li(null, item.prop3),
@@ -83,9 +84,10 @@ window.ReactItemList = React.createClass({displayName: 'ReactItemList',
         var scope = this.props.scope;
         var items = scope.items;
         
-        var rows = _.map(items, function(item) {
+        var ItemFactory = React.createFactory(ReactItem);
+        var rows = _.map(items, function(item, idx) {
             return (
-                ReactItem( {item:item, scope:scope} )
+               ItemFactory({key: idx, item:item, scope:scope})
             );
         });
 
