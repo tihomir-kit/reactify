@@ -25,7 +25,7 @@
         <span><b>Watchers count:</b> {{watchersCount}}</span>
 
         <div ng-if="showAngular">
-            <ul ng-repeat="item in items">
+            <ul ng-repeat="item in items track by $index">
                 <li>{{item.prop1}}</li>
                 <li>{{item.prop2}}</li>
                 <li>{{item.prop3}}</li>
@@ -41,8 +41,7 @@
             </ul>
         </div>
 
-        <div ng-if="showReact">
-            <div ng-react-component="ReactItemList" data="items" ></div>
+        <div id="reactExample" ng-show="showReact">
         </div>
     </div>
 </body>
